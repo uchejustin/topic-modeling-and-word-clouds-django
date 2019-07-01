@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+
+
+  {% if top_five_url %}
+    <ul>
+      {% comment %} {% for value in top_ten_url %} {% endcomment %}
+      {% comment %} <li style="color:white;"> {{ top_five_url }} </li> {% endcomment %}
+      {% comment %} {% endfor %} {% endcomment %}
+      <img src="{{ top_five_url }}">
+    </ul>
+  {% endif %}
+
+
+  {% if error_text %}
+    <p class="text-white-50">{{ error_text }}</p>
+  {% endif %}
+  
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+{% endblock %}

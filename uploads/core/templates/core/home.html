@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <ul>
+    {% comment %} <li> {% endcomment %}
+      <a href="{% url 'simple_upload' %}">Simple Upload</a>
+    {% comment %} </li> {% endcomment %}
+    {% comment %} <li>
+      <a href="{% url 'model_form_upload' %}">Model Form Upload</a>
+    </li> {% endcomment %}
+  </ul>
+
+  <ul>
+  <p style="color:white; text-align:center;">Uploaded Files List:</p>
+    {% for obj in documents %}
+      <li>
+        <a style="color:white;" href="{{ obj.document.url }}">{{ obj.document.name }}</a>
+        <small style="color:white;">(Uploaded at: {{ obj.uploaded_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
