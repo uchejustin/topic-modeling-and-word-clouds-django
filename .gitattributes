@@ -1,4 +1,2 @@
-static/* linguist-vendored
-docs/* linguist-documentation
-*.rb linguist-language=Java
-*.py linguist-language=Python
+* linguist-vendored
+*.py linguist-vendored=false
